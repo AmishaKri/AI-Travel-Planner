@@ -31,21 +31,31 @@ A travel planning application that uses **Google's Gemini AI** to generate perso
    ```bash
    git clone <repository-url>
    cd travel-planning-ai
-2. Install dependencies
-pip install -r requirements.txt
-Add your API keys in a .env file
-Create a file named .env in the root directory and add:
+## ⚙️ Setup (Continued)
 
-3. .env
+2. **Install dependencies**  
+   ```bash
+   pip install -r requirements.txt
+   
+3. **Add your API keys in a .env file
+Create a file named .env in the root directory and add the following:
+
+env
+
 GEMINI_API_KEY=your_api_key_here
 SERP_API_KEY=your_api_key_here
 
-4.Run the backend server
+4. **Run the backend server
+```bash
 uvicorn app:app --reload
+```
+5. **Open the frontend
 
-5.Open the frontend
 Open index.html directly in your browser
+
 Or serve it using a local server (e.g., Live Server in VS Code)
+
+
 
 🚀 Usage
 Fill in the travel form:
