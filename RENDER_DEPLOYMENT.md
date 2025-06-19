@@ -29,7 +29,7 @@ Use the following settings:
 - **Environment**: `Python 3`
 - **Region**: Choose the region closest to your target users
 - **Branch**: `main` (or your default branch)
-- **Build Command**: `./build.sh` or `pip install -r requirements.txt`
+- **Build Command**: `pip install -r requirements-render.txt`
 - **Start Command**: `uvicorn app:app --host 0.0.0.0 --port $PORT`
 - **Plan**: Free (or select a paid plan for better performance)
 
@@ -39,7 +39,7 @@ Add the following environment variables:
 
 - `GEMINI_API_KEY`: Your Google Gemini API key
 - `SERP_API_KEY`: Your SERP API key
-- `PYTHON_VERSION`: `3.9.0`
+- `PYTHON_VERSION`: `3.9.18`
 
 ### 5. Deploy the Service
 
@@ -53,13 +53,9 @@ You can monitor the deployment process in the Render dashboard. Check the logs f
 
 ### Issue: Rust Compilation Errors
 
-If you encounter errors related to Rust compilation (especially with pydantic-core), make sure your `requirements.txt` file includes:
+If you encounter errors related to Rust compilation (especially with pydantic-core), use the provided `requirements-render.txt` file which contains compatible versions of all dependencies.
 
-```
---only-binary=:all:
-```
-
-This tells pip to use pre-built wheels instead of building packages from source.
+The `requirements-render.txt` file is specifically configured for Render deployment and avoids packages that require Rust compilation.
 
 ### Issue: Static Files Not Found
 
