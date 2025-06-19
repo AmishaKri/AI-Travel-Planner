@@ -30,7 +30,7 @@ Use the following settings:
 - **Region**: Choose the region closest to your target users
 - **Branch**: `main` (or your default branch)
 - **Build Command**: `pip install -r requirements-render.txt`
-- **Start Command**: `uvicorn app:app --host 0.0.0.0 --port $PORT --no-reload`
+- **Start Command**: `bash .render-start.sh`
 - **Plan**: Free (or select a paid plan for better performance)
 
 ### 4. Add Environment Variables
@@ -75,9 +75,11 @@ If your application can't access environment variables, make sure:
 
 If you see "No open ports detected on 0.0.0.0" in your logs:
 
-1. Make sure your start command includes `--host 0.0.0.0 --port $PORT --no-reload`
-2. Check that your application is binding to the port specified by the `$PORT` environment variable
-3. Avoid using the `--reload` flag in production as it can cause issues with port binding
+1. Use the provided `.render-start.sh` script which properly configures the server
+2. Make sure the start command in Render is set to `bash .render-start.sh`
+3. Check that your application is binding to the port specified by the `$PORT` environment variable
+4. Avoid using the `--reload` flag in production as it can cause issues with port binding
+5. Try using the alternative `server.py` approach by setting the start command to `python server.py`
 
 ## Updating Your Deployment
 
