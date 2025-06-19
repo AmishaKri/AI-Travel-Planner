@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planning AI</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- Add marked.js for markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Planning AI</h1>
+        <form id="travelForm">
+            <div class="form-group">
+                <label for="source">Source Location:</label>
+                <input type="text" id="source" required>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" required>
+            </div>
+
+            <div class="form-group date-group">
+                <div>
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div>
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Budget (INR):</label>
+                <input type="number" id="budget" required min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="travelers">Number of Travelers:</label>
+                <input type="number" id="travelers" required min="1">
+            </div>
+
+            <div class="form-group">
+                <label for="interests">Interests (comma-separated):</label>
+                <input type="text" id="interests" placeholder="e.g., history, food, adventure" required>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="includeFlights" name="includeFlights">
+                <label for="includeFlights">Include Flight Details</label>
+            </div>
+
+            <button type="submit">Generate Travel Plan</button>
+        </form>
+
+        <div id="loadingSpinner" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p>Generating your travel plan...</p>
+        </div>
+
+        <div id="result" class="result hidden">
+            <h2>Your Travel Plan</h2>
+            <div id="planContent"></div>
+            
+            <div id="flightDetails" class="flight-details hidden">
+                <h3>Flight Options</h3>
+                <div id="flightContent"></div>
+            </div>
+
+            <div id="chatBox" class="chat-box hidden">
+                <h3>Ask about your Travel Plan</h3>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Ask any questions about your travel plan...">
+                    <button type="button" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
