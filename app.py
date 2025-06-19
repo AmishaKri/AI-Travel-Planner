@@ -208,3 +208,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.get("/")
 async def root():
     return FileResponse('static/index.html')
+
+# Add a health check endpoint for Render
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
